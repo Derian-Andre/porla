@@ -125,9 +125,7 @@ function Torrents() {
                 return (
                   <Tr key={idx}>
                     {showCircularProgress &&
-                      <Td
-                        paddingEnd={0}
-                      >
+                      <Td paddingEnd={0}>
                         <CircularProgress
                           color={getStateColor(state)}
                           value={item.progress*100}
@@ -152,7 +150,7 @@ function Torrents() {
                       >
                         <Icon
                           as={MdOutlineFolder}
-                          mr={1}
+                          marginEnd={1}
                           fontSize={"sm"}
                         />
                         {item.save_path}
@@ -163,7 +161,7 @@ function Torrents() {
                     <Td textAlign={"right"}>{item.download_payload_rate < 1024 ? "‒" : filesize(item.download_payload_rate)+"/s"}</Td>
                     <Td textAlign={"right"}>{item.upload_payload_rate   < 1024 ? "‒" : filesize(item.upload_payload_rate)+"/s"}</Td>
                     <Td textAlign={"right"}>{item.num_peers === 0 ? "‒" : item.num_peers}</Td>
-                    <Td>
+                    <Td paddingStart={0}>
                       <Menu>
                         <MenuButton
                           as={IconButton}
