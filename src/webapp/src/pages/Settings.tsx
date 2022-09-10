@@ -14,13 +14,15 @@ export default function Settings() {
   const { t, i18n } = useTranslation();
   const toast = useToast();
 
-  const config = trpc.useQuery(["config.get", [
-    "default_save_path",
-    "proxy_type",
-    "proxy_hostname",
-    "proxy_port",
-    "language",
-  ]]);
+  const configDefault = {
+    "default_save_path": "",
+    "proxy_type": 0,
+    "proxy_hostname": "",
+    "proxy_port": 1080,
+    "language": "en",
+  }
+
+  const config = trpc.useQuery(["config.get", Object.keys(configDefault)]);
 
   const setConfig = trpc.useMutation(["config.set"]);
 
@@ -29,6 +31,22 @@ export default function Settings() {
     i18n.changeLanguage(event.target.value);
   };
 
+  const setInitialValues = () => {
+    const configValues = { ...configDefault };
+
+    Object.keys(configDefault).forEach(key => {
+      configValues[key] = config.data[key];
+    });
+
+    return configValues;
+  }
+
+  const toNumber = (value: (number | string)) => {
+    return typeof value === "string"
+      ? parseInt(value)
+      : value;
+  }
+
   if (!config.data) {
     return <Loading />
   }
@@ -36,19 +54,13 @@ export default function Settings() {
   return (
     <>
       <Formik
-        initialValues={{
-          default_save_path: config.data.default_save_path || "",
-          proxy_type: config.data.proxy_type || 0,
-          proxy_hostname: config.data.proxy_hostname || "",
-          proxy_port: config.data.proxy_port || 1080,
-          language: config.data.language || "en",
-        }}
+        initialValues={setInitialValues()}
         onSubmit={async (values) => {
           try {
             await setConfig.mutateAsync({
               ...values,
               // force number for certain properties
-              proxy_type: parseInt(values.proxy_type)
+              proxy_type: toNumber(values.proxy_type),
             });
             toast({
               title: t("success"),
