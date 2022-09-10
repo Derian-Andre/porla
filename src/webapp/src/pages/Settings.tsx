@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, FormControl, FormHelperText, FormLabel, Input, Select, useToast } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
@@ -25,11 +25,6 @@ export default function Settings() {
   const config = trpc.useQuery(["config.get", Object.keys(configDefault)]);
 
   const setConfig = trpc.useMutation(["config.set"]);
-
-  const handleLanguange = (event: React.ChangeEvent<HTMLSelectElement>, handleChange: Function) => {
-    handleChange(event);
-    i18n.changeLanguage(event.target.value);
-  };
 
   const setInitialValues = () => {
     const configValues = { ...configDefault };
@@ -62,6 +57,7 @@ export default function Settings() {
               // force number for certain properties
               proxy_type: toNumber(values.proxy_type),
             });
+            i18n.changeLanguage(values.language);
             toast({
               title: t("success"),
               description: t("change_settings_success"),
@@ -99,7 +95,7 @@ export default function Settings() {
                   name="language"
                   value={values.language}
                   placeholder={t("select_language")}
-                  onChange={(event) => handleLanguange(event, handleChange)}
+                  onChange={handleChange}
                 >
                   {langs.map(item => (
                     <option value={item.code} key={item.code}>
