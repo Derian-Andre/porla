@@ -1,5 +1,5 @@
-import { Box, BoxProps, Heading } from "@chakra-ui/react";
 import React from "react";
+import { Box, BoxProps, Heading } from "@chakra-ui/react";
 
 interface CardProps extends BoxProps {
   children: JSX.Element[] | JSX.Element | string;
@@ -9,14 +9,12 @@ interface CardProps extends BoxProps {
 export default function Card(props: CardProps) {
   return (
     <Box
-      backgroundColor={"#fff"}
-      border="1px solid #f0f0f0"
+      borderWidth={1}
       borderRadius={4}
-      padding={3}
+      padding={5}
       { ...props }
     >
       <Heading
-        color={"#444"}
         marginBottom={3}
         size="md"
       >
