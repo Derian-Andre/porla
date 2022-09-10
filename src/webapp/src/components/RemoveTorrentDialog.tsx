@@ -10,7 +10,7 @@ interface IRemoveTorrentDialogProps {
   torrent: any;
 }
 
-export function RemoveTorrentDialog(props: IRemoveTorrentDialogProps) {
+export default function RemoveTorrentDialog(props: IRemoveTorrentDialogProps) {
   const { t } = useTranslation();
 
   const cancelRef = useRef(null);

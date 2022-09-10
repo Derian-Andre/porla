@@ -2,12 +2,13 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Formik, Field } from "formik";
-import { trpc } from "../utils/trpc";
-import { Box, Button, FormControl, FormHelperText, FormLabel, Heading, Input, useToast } from "@chakra-ui/react";
+import { Button, FormControl, FormHelperText, FormLabel, Input, useToast } from "@chakra-ui/react";
+
 import Loading from "../components/Loading";
 import Card from "../components/Card";
+import { trpc } from "../utils/trpc";
 
-function Add() {
+export default function Add() {
   const { t } = useTranslation();
   const toast = useToast();
   const navigate = useNavigate();
@@ -91,5 +92,3 @@ function Add() {
     </>
   );
 }
-
-export default Add;

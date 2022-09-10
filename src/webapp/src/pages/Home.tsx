@@ -2,16 +2,12 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import Card from "../components/Card";
 
-function Home() {
+export default function Home() {
   const { t } = useTranslation();
 
   return (
-    <>
-      <Card heading={t("overview")}>
-        Porla!
-      </Card>
-    </>
+    <Card heading={t("overview")}>
+      Porla!
+    </Card>
   )
 }
-
-export default Home;

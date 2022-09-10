@@ -2,17 +2,18 @@ import React from "react";
 import { Icon } from "@chakra-ui/react";
 import { MdClose, MdDone, MdDownload, MdOutlineWarningAmber, MdPause, MdUpload } from "react-icons/md";
 import { getState, getStateColor } from "../utils/torrentStates";
+import { useTranslation } from "react-i18next";
 
 interface IProgressLabelProps {
-  t: Function;
   torrent: any;
   showNumber: boolean;
 }
 
-function ProgressLabel(props: IProgressLabelProps) {
-  const { t, torrent, showNumber } = props;
-  const state: string = getState(torrent);
-  const color: string = getStateColor(state);
+export default function ProgressLabel({ torrent, showNumber }: IProgressLabelProps) {
+  const { t } = useTranslation();
+
+  const state = getState(torrent);
+  const color = getStateColor(state);
 
   const icons = {
     "completed": MdDone,
@@ -27,5 +28,3 @@ function ProgressLabel(props: IProgressLabelProps) {
     ? (<>{Math.trunc(torrent.progress * 100)}%</>)
     : (<Icon className="icon-state" aria-label={t(state)} as={icons[state]} color={color} w={5} h={5}/>)
 }
-
-export default ProgressLabel;

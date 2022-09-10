@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Button, Checkbox, FormControl, FormHelperText, FormLabel, Input, Select } from "@chakra-ui/react";
+import { Button, FormControl, FormHelperText, FormLabel, Input, Select } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import { trpc } from "../utils/trpc";
 

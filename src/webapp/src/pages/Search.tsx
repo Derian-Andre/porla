@@ -12,10 +12,8 @@ export default function Search() {
   const search = trpc.useQuery(["search.all", { query }]);
 
   return (
-    <>
-      <Card heading="Search">
-        {JSON.stringify(search.data)}
-      </Card>
-    </>
+    <Card heading="Search">
+      {JSON.stringify(search.data)}
+    </Card>
   );
 }

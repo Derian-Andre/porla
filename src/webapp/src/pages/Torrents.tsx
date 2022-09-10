@@ -12,15 +12,14 @@ import {
 import { MdFilterList, MdFolder, MdOutlineFolder, MdMenu, MdPause, MdPlayArrow, MdOutlineGridView, MdOutlineMoreVert, MdDelete, } from "react-icons/md";
 import filesize from "filesize";
 
+import Loading from "../components/Loading";
+import ProgressLabel from "../components/ProgressLabel";
+import MoveTorrentModal from "../components/MoveTorrentModal";
+import RemoveTorrentDialog from "../components/RemoveTorrentDialog";
 import { getState, getStateColor, isPaused, } from "../utils/torrentStates";
 import { trpc } from "../utils/trpc";
 
-import Loading from "../components/Loading";
-import ProgressLabel from "../components/ProgressLabel";
-import { MoveTorrentModal } from "../components/MoveTorrentModal";
-import { RemoveTorrentDialog } from "../components/RemoveTorrentDialog";
-
-function Torrents() {
+export default function Torrents() {
   const { t } = useTranslation();
   const { colorMode } = useColorMode();
 
@@ -136,7 +135,7 @@ function Torrents() {
                           trackColor={colorMode === "light" ? "blackAlpha.300" : "whiteAlpha.300"}
                         >
                           <CircularProgressLabel display={"flex"} alignItems={"center"} justifyContent={"center"}>
-                            <ProgressLabel t={t} torrent={item} showNumber={true}/>
+                            <ProgressLabel torrent={item} showNumber={true}/>
                           </CircularProgressLabel>
                         </CircularProgress>
                       </Td>
@@ -230,5 +229,3 @@ function Torrents() {
     </>
   );
 }
-
-export default Torrents;

@@ -17,6 +17,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Flex height={"100vh"}>
           <Sidebar />
+
           <Box flex={1} p={5}>
             <Outlet />
           </Box>

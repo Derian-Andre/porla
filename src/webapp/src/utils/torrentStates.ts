@@ -1,5 +1,5 @@
 
-function getState(torrent: any): string {
+function getState(torrent: { state: number, flags: number, progress: number }): string {
   if (!torrent) return "unknown";
 
   const { state, flags, progress } = torrent;
