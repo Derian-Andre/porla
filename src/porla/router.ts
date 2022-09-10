@@ -41,7 +41,8 @@ export const appRouter = trpc
       default_save_path: z.string().optional(),
       proxy_type: z.number().optional(),
       proxy_hostname: z.string().optional(),
-      proxy_port: z.number().optional()
+      proxy_port: z.number().optional(),
+      language: z.string().optional(),
     }),
     resolve(req) {
       const insert = req.ctx.database()

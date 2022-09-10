@@ -82,5 +82,9 @@ export default {
     "theme": "Theme",
     "toggle_theme_light": "Change to dark theme",
     "toggle_theme_dark": "Change to light theme",
+    "language": "Language",
+    "select_language": "Select your language",
+    "select_language_helper": "Choose the language for the UI",
+    "change_settings_success": "Your settings have been changed successfully!",
   },
 };
