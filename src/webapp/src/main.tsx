@@ -12,6 +12,7 @@ import Add from "./pages/Add";
 import Torrents from "./pages/Torrents";
 import Settings from "./pages/Settings";
 import Home from "./pages/Home";
+import Search from "./pages/Search";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
@@ -23,6 +24,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
             <Route index element={<Home />} />
             <Route path="torrents" element={<Torrents />} />
             <Route path="torrents/add" element={<Add />} />
+            <Route path="search" element={<Search />} />
             <Route path="settings" element={<Settings />} />
           </Route>
         </Routes>

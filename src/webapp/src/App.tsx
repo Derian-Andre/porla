@@ -1,4 +1,4 @@
-import "./scss/app.scss";
+import "./scss/App.scss";
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";

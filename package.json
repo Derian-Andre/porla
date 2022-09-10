@@ -59,8 +59,10 @@
   "dependencies": {
     "@porla/libtorrent": "1.0.0-rc.3",
     "@trpc/server": "^9.27.0",
+    "axios": "^0.27.2",
     "better-sqlite3": "^7.6.2",
     "express": "^4.18.1",
+    "fast-xml-parser": "^4.0.9",
     "filesize": "^9.0.11",
     "pino": "^8.4.0",
     "pino-pretty": "^9.0.0",
