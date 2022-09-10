@@ -1,4 +1,4 @@
-import "../scss/pages/torrents.scss";
+import "../scss/pages/Torrents.scss";
 
 import React, { useState } from "react";
 import { useTranslation, Trans } from "react-i18next";
