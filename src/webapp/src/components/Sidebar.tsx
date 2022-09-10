@@ -2,10 +2,11 @@ import "../scss/components/sidebar.scss";
 
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Box, Button, HStack, VStack, Flex, Icon, IconButton, Link, useColorMode } from "@chakra-ui/react";
-import { MdAddCircle, MdOutlineDashboard, MdOutlineSettings, MdOutlineDashboardCustomize, MdOutlineTableRows, MdOutlineAddCircle, MdOutlineAddCircleOutline } from "react-icons/md";
+import { Box, Button, HStack, VStack, Flex, Icon, IconButton, Link, useColorMode, Divider } from "@chakra-ui/react";
+import { MdOutlineDashboard, MdOutlineSettings, MdOutlineTableRows, MdOutlineAddCircleOutline } from "react-icons/md";
 import { useTranslation } from "react-i18next";
 import { Porla } from "./brand";
+import { QuickSearch } from "../components/QuickSearch";
 
 export default function Sidebar() {
   const { t } = useTranslation();
@@ -88,9 +89,9 @@ export default function Sidebar() {
             position="absolute"
             right="0"
             aria-label={t(item.rightIcon.slug)}
-            as={Link}
+            as={NavLink}
             icon={item.rightIcon.icon}
-            href={item.rightIcon.to}
+            to={item.rightIcon.to}
             borderRadius="full"
             variant="ghost"
             size="lg"
@@ -119,8 +120,12 @@ export default function Sidebar() {
           </Link>
         </Box>
 
+        <QuickSearch />
+
+        <Divider my={3} />
+
         <VStack>
-          {menu.map(item => SidebarItem(item))}
+          {menu.map(SidebarItem)}
         </VStack>
       </Box>
 
