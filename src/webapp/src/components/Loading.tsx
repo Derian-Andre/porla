@@ -10,7 +10,7 @@ export default function Loading() {
       <VStack spacing={4}>
         <Spinner
           color="blue.500"
-          emptyColor="gray.200"
+          emptyColor="blackAlpha.300"
           size="xl"
           speed="0.65s"
           thickness="5px"
