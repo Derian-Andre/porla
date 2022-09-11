@@ -1,5 +1,5 @@
 import React from "react";
-import { Center, Spinner, VStack, Text } from "@chakra-ui/react";
+import { Center, Spinner, VStack, Heading } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 
 export default function Loading() {
@@ -15,9 +15,9 @@ export default function Loading() {
           speed="0.65s"
           thickness="5px"
         />
-        <Text>
+        <Heading as="h6" size="xs">
           {t("loading")}
-        </Text>
+        </Heading>
       </VStack>
     </Center>
   );
