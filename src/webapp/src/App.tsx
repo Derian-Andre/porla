@@ -1,4 +1,4 @@
-import "./scss/app.scss";
+import "./scss/App.scss";
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -17,6 +17,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Flex height={"100vh"}>
           <Sidebar />
+
           <Box flex={1} p={5}>
             <Outlet />
           </Box>

@@ -3,7 +3,7 @@ import { Button, useColorMode } from "@chakra-ui/react";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { useTranslation } from "react-i18next";
 
-function ToggleTheme() {
+export default function ToggleTheme() {
   const { t } = useTranslation();
   const { colorMode, toggleColorMode } = useColorMode();
 
@@ -17,5 +17,3 @@ function ToggleTheme() {
     </Button>
   )
 }
-
-export default ToggleTheme;

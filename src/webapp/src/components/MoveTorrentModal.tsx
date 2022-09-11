@@ -12,7 +12,7 @@ interface IMoveTorrentModalProps {
   torrent: any;
 }
 
-export function MoveTorrentModal(props: IMoveTorrentModalProps) {
+export default function MoveTorrentModal(props: IMoveTorrentModalProps) {
   const { t } = useTranslation();
 
   const move = trpc.useMutation("torrents.move");

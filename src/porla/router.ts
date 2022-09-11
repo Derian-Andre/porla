@@ -1,8 +1,9 @@
 import * as trpc from "@trpc/server";
 import { Database } from "better-sqlite3";
 import { z } from "zod";
-import { logger } from "./logger.js";
 import { ISession } from "./session.js";
+import axios from "axios";
+import { XMLParser } from "fast-xml-parser";
 
 type PorlaContext = trpc.inferAsyncReturnType<() => {
   database(): Database;
@@ -64,6 +65,13 @@ export const appRouter = trpc
 
       req.ctx.session()
         .reloadSettings();
+    }
+  })
+  .query("search.all", {
+    input: z.object({
+      query: z.string()
+    }),
+    async resolve(req) {
     }
   })
   .mutation("torrents.add", {
